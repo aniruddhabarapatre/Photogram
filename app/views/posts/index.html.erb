@@ -1,7 +1,7 @@
-<h1>Photogram</h1>
-
 <% @posts.each do |p| %>
-  <%= image_tag p.image.url(:medium) %>
-  <br />
-  <%= p.caption %>
+  <div class="row">
+    <%= link_to (image_tag p.image.url(:medium)), post_path(p) %>
+    <br />
+    <p><%= p.caption %></p>
+  </div>
 <% end %>
