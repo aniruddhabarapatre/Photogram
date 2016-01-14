@@ -12,6 +12,27 @@
       <p class="caption">
         <%= p.caption %>
       </p>
+      <% if p.comments %>
+        <% p.comments.each do |c| %>
+          <div class="comment">
+            <div class="user-name">
+              <%= c.user.user_name %>
+            </div>
+            <div class="comment-content">
+              <%= c.content %>
+            </div>
+
+            <% if c.user == current_user %>
+              <% link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="comment-form">
+        <%= form_for [p, p.comments.new] do |f| %>
+          <%= f.text_field :content, placeholder: "Add a comment..." %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
