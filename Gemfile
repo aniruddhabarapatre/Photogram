@@ -22,6 +22,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'quiet_assets'
 end
 
 gem 'bootstrap-sass', '~> 3.3.6'
