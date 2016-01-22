@@ -1,5 +1,6 @@
 <div class="posts-wrapper row">
   <%= render "post", post: @post %>
+
   <div class="text-center edit-links">
     <% if @post.user_id == current_user.id %>
       <%= link_to "Edit", edit_post_path(@post) %>
